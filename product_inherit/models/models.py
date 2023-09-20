@@ -15,8 +15,10 @@ class product_inherit(models.Model):
         
         # Call the original create method
        product = super(product_inherit, self).create(vals)
-                
-       requests.get("https://depotsarl.com/ecomerce/odoo/api.php"+"?"+"action=post_edit"+"&"+"id="+str(product.id))
+       URL = "https://depotsarl.com/ecomerce/odoo/api.php"
+       PARAMS = {'action':'post_add','id':product.id}
+       requests.get(url = URL, params = PARAMS)         
+       #requests.get("https://depotsarl.com/ecomerce/odoo/api.php"+"?"+"action=post_add"+"&"+"id="+str(product.id))
         # Add custom behavior here if needed
 
        return product
