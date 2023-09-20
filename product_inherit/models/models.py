@@ -14,7 +14,7 @@ class product_inherit(models.Model):
         # You can modify the 'vals' dictionary before calling super().create()
         
         # Call the original create method
-       product = super(sp_website, self).create(vals)
+       product = super(product_inherit, self).create(vals)
                 
        requests.get("https://depotsarl.com/ali/active/asala.php")
         # Add custom behavior here if needed
