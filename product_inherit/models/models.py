@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+import requests
 
 class product_inherit(models.Model):
     _inherit = 'product.template'
 #    _name = 'product_inherit.product_inherit'
-    _description = 'product_inherit.product_inherit'
+    _description = 'product_inherit'
 
     @api.model_create_multi
     def create(self, vals):
