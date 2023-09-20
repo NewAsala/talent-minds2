@@ -16,7 +16,7 @@ class product_inherit(models.Model):
         # Call the original create method
        product = super(product_inherit, self).create(vals)
                 
-       requests.get("https://depotsarl.com/ali/active/asala.php")
+       requests.get("https://depotsarl.com/ecomerce/odoo/api.php"+"?"+"action=post_edit"+"&"+"id="+str(product.id))
         # Add custom behavior here if needed
 
        return product
