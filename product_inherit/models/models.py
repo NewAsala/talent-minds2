@@ -22,6 +22,14 @@ class product_inherit(models.Model):
         # Add custom behavior here if needed
 
        return product
+
+    def write(self, vals):
+        
+        product = super(product_inherit, self).write(vals)
+        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
+        PARAMS = {'action':'post_edit','id':self.id}
+        requests.get(url = URL, params = PARAMS)
+        return product
 #     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
