@@ -15,7 +15,7 @@ class product_inherit(models.Model):
         
         # Call the original create method
        product = super(product_inherit, self).create(vals)
-       URL = "https://depotsarl.com/ali/active/asala.php"
+       URL = "https://depotsarl.com/ecomerce/odoo/api.php"
        PARAMS = {'action':'post_add','id':product.id}
        requests.get(url = URL, params = PARAMS)         
        #requests.get("https://depotsarl.com/ecomerce/odoo/api.php"+"?"+"action=post_add"+"&"+"id="+str(product.id))
@@ -26,7 +26,7 @@ class product_inherit(models.Model):
     def write(self, vals):
         
         product = super(product_inherit, self).write(vals)
-        URL = "https://depotsarl.com/ali/active/asala.php"
+        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         PARAMS = {'action':'post_edit','id':self.id}
         requests.get(url = URL, params = PARAMS)
         return product
