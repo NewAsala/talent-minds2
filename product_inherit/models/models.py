@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 import requests
+import json
 
 class product_inherit(models.Model):
     _inherit = 'product.template'
@@ -16,7 +17,8 @@ class product_inherit(models.Model):
         # Call the original create method
        product = super(product_inherit, self).create(vals)
        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
-       requests.post(url = URL,json=product,headers=headers)
+       json_data = json.dumps(product.__dict__, default=lambda o: o.__dict__, indent=4)
+       requests.post(url = URL,data=json_data,headers=headers)
        #PARAMS = {'action':'post_add','id':6}
        #requests.get(url = URL, params = PARAMS)         
         # Add custom behavior here if needed
