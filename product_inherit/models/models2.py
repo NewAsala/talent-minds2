@@ -10,7 +10,7 @@ class product_product_inherit(models.Model):
 
     @api.model_create_multi
     def unlink(self):
-        product = super(product_inherit, self).unlink()
+        product = super(product_product_inherit, self).unlink()
         URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         PARAMS = {'action':'post_delete','id':self.id}
         requests.get(url = URL, params = PARAMS)
