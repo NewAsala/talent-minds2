@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api,_
+from odoo.exceptions import UserError
 import requests
 import json
 
@@ -13,7 +14,7 @@ class category_inherit(models.Model):
        product = super(category_inherit, self).create(vals)
        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
        PARAMS = {'action':'category_add','id':product.id}
-       print(product.id)
+       raise UserError(_(product.id))
        requests.get(url = URL, params = PARAMS)         
 
        return product
@@ -23,7 +24,7 @@ class category_inherit(models.Model):
         product = super(category_inherit, self).write(vals)
         URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         PARAMS = {'action':'category_edit','id':self.id}
-        print(product.id)
+        raise UserError(_(product.id))
         requests.get(url = URL, params = PARAMS)
         return product
 

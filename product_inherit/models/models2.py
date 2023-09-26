@@ -14,5 +14,5 @@ class ProductProduct(models.Model):
         #URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         #PARAMS = {'action':'post_delete','id':self.id}
         #requests.get(url = URL, params = PARAMS)
-        raise UserError(_('ProductProduct unlink'))
+        raise UserError(_(self.id))
         return product
