@@ -25,6 +25,7 @@
         'web',
         'website',
         'product',
+        'website_sale'
     ],
 
     # always loaded
