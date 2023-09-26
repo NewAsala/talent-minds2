@@ -13,6 +13,7 @@ class category_inherit(models.Model):
        product = super(category_inherit, self).create(vals)
        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
        PARAMS = {'action':'category_add','id':product.id}
+       print(product.id)
        requests.get(url = URL, params = PARAMS)         
 
        return product
@@ -22,6 +23,7 @@ class category_inherit(models.Model):
         product = super(category_inherit, self).write(vals)
         URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         PARAMS = {'action':'category_edit','id':self.id}
+        print(product.id)
         requests.get(url = URL, params = PARAMS)
         return product
 
