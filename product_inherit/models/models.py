@@ -7,7 +7,6 @@ import json
 
 class product_inherit(models.Model):
     _inherit = 'product.template'
-#    _name = 'product_inherit.product_inherit'
     _description = 'product_inherit'
 
     @api.model_create_multi
@@ -36,17 +35,9 @@ class product_inherit(models.Model):
 
     def unlink(self):
         product = super(product_inherit, self).unlink()
-        #URL = "https://depotsarl.com/ecomerce/odoo/api.php"
-        #PARAMS = {'action':'post_delete','id':self.id}
-        #requests.get(url = URL, params = PARAMS)
-        raise UserError(_(self.id))
+        URL = "https://depotsarl.com/ecomerce/odoo/api.php"
+        PARAMS = {'action':'post_delete','id':self.id}
+        requests.get(url = URL, params = PARAMS)
+        #raise UserError(_(self.id))
         return product
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+
