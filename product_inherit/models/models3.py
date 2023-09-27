@@ -24,7 +24,14 @@ class category_inherit(models.Model):
         product = super(category_inherit, self).write(vals)
         URL = "https://depotsarl.com/ecomerce/odoo/api.php"
         PARAMS = {'action':'category_edit','id':self.id}
-        raise UserError(_(product.id))
+        raise UserError(_(self.id))
         requests.get(url = URL, params = PARAMS)
         return product
 
+    def unlink(self):
+        product = super(category_inherit, self).unlink()
+        #URL = "https://depotsarl.com/ecomerce/odoo/api.php"
+        #PARAMS = {'action':'post_delete','id':self.id}
+        #requests.get(url = URL, params = PARAMS)
+        raise UserError(_(self.id))
+        return product

@@ -32,6 +32,14 @@ class product_inherit(models.Model):
         PARAMS = {'action':'post_edit','id':self.id}
         requests.get(url = URL, params = PARAMS)
         return product
+
+    def unlink(self):
+        product = super(product_inherit, self).unlink()
+        #URL = "https://depotsarl.com/ecomerce/odoo/api.php"
+        #PARAMS = {'action':'post_delete','id':self.id}
+        #requests.get(url = URL, params = PARAMS)
+        raise UserError(_(self.id))
+        return product
 #     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
